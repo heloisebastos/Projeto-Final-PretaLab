@@ -1,31 +1,60 @@
-# Template para o projeto final do Aprofunda Pretalab
+# Projeto final do Aprofunda Pretalab
 
-![image](https://media2.giphy.com/media/D567hs4Dex0GEnAKOY/giphy.gif)
-<aside>
-⚠️ Este repositório é um template feito com a base do projeto final feito com typscript e clean archi.
-</aside>
+<br> 
 
-<br>
-
-## `Como usar este template:`
-
-- Com o link do template aberto no navegador, clique no botão verde "Use this template";
-
--  Após clicar no botão, você será redirecionada para uma nova página onde você deve escolher o nome do repositório que você irá criar a partir do template. Dê um nome ao repositório, certifique-se que está marcado como público e clique em "Create repository from template";
-
-- Após isso você será redirecionada para a página do repositório que acabou de criar. Para clonar o repositório, clique no botão "Code" e irá aparecer um menu. Copie a URL que aparece logo abaixo do botão;
-
-- No seu terminal, navegue até a sua pasta de preferência e rode o comando git clone {URL_DO_REPOSITORIO}, isso irá baixar todos os arquivos para a sua máquina. Lembre-se que você precisa do Git instalado em sua máquina, caso ainda não tenha;
-
-- Com seu repositório baixado na sua máquina, execute o comando ``npm install`` na pasta do projeto clonado para instalar todas as dependências.
+# Sumário
+* [1. Introdução](#1-introdução)
+    * [1.1. Tecnologias](#11-tecnologias)
+* [2. Inicializar a Aplicação ](#2-inicializar-a-aplicação)
+* [3. Arquitetura da Aplicação](#3-arquitetura-da-aplicação)
 
 
-## Projeto Backend - Gestão de Despesas e Chat com Google GenAI
+## 1. Introdução 
+
+### Projeto Backend - Gestão de Despesas e Chat com Google GenAI
 
 Este projeto backend foi desenvolvido com Node.js e TypeScript, utilizando arquitetura limpa. Ele permite gerenciar despesas de pessoas usuárias e integrar funcionalidades de chat com Gemini.
 
+## 1.1. Tecnologias
+
+A API foi desenvolvida utilizando as seguintes tecnologias:
+
+- [Node.js](https://nodejs.org/en)
+- [Express](https://expressjs.com/)
+- [Insomnia](https://insomnia.rest/download)
+- [IDE VSCODE](https://code.visualstudio.com/download)
+- [TypeScript](https://www.typescriptlang.org/)
+- [MongoDB](https://www.mongodb.com/pt-br) 
 ---
-## Arquitetura da aplicação
+# 2. Inicializar a Aplicação 
+### Testando a API 
+
+Os passos necessários para testar localmente são:
+
+- Instalar as ferramentas necessárias
+- Clonar o projeto 
+  ```plaintext
+        git clone https://github.com/heloisebastos/Projeto-Final-PretaLab.git
+    ```
+- Entrar no diretório
+    ```
+    cd Projeto-Final-PretaLab
+    ```
+- Executar o seguintes comandos na raiz do diretório
+
+
+  - Instalar o Express
+    ````
+    npm install express
+    ````
+  - Executa o script start definido no package.json, utilizado para rodar a aplicação. 
+    ```plaintext
+        npm  start
+    ```
+
+
+-----------------------------------------------
+## 3. Arquitetura da aplicação
 
 ![Descrição da Imagem](pretalab.png)
 
