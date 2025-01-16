@@ -1,12 +1,11 @@
 # Projeto final do Aprofunda Pretalab
 
-<br> 
-
 # Sumário
 * [1. Introdução](#1-introdução)
     * [1.1. Tecnologias](#11-tecnologias)
 * [2. Inicializar a Aplicação ](#2-inicializar-a-aplicação)
 * [3. Arquitetura da Aplicação](#3-arquitetura-da-aplicação)
+* [Estrutura do Projeto](#estrutura-do-projeto)
 
 
 ## 1. Introdução 
@@ -182,31 +181,34 @@ A **Clean Architecture** foi aplicada no projeto para garantir uma separação c
 
 A **Inversão de Injeção de Dependências** é uma prática que visa desacoplar componentes do sistema, onde as dependências são injetadas em vez de serem criadas diretamente nas classes. Isso é alcançado no projeto através de um mecanismo de injeção de dependências usada para passar instâncias de casos de uso e repositórios para os controladores (`chatController`, `despesaController`).
 
+-------------
+## Estrutura do Projeto
 ````
-src/
-├── application/
-│   ├── repositories/
-│   │   ├── chat-repository.ts
-│   │   └── despesa-repository.ts
-│   ├── usecases/
-│   │   ├── create-chat-use-case.ts
-│   │   ├── create-despesa-use-case.ts
-│   │   └── get-despesas-by-user-use-case.ts
-├── domain/
-│   └── despesa.ts
-├── infrastructure/
-│   ├── database/
-│   │   ├── connection.ts
-│   │   ├── model.ts
-│   │   └── repository.ts
-│   ├── genai/
-│   │   ├── connection.ts
-│   │   └── repository.ts
-│   └── utils/
-│       └── config.ts
-├── interface/
-│   ├── chat-controller.ts
-│   ├── despesa-controller.ts
-│   └── index.ts
+📂api-gerenciamento-de-despesas
+ └───src/
+      ├── application/
+      │   ├── repositories/
+      │   │   ├── chat-repository.ts
+      │   │   └── despesa-repository.ts
+      │   ├── usecases/
+      │   │   ├── create-chat-use-case.ts
+      │   │   ├── create-despesa-use-case.ts
+      │   │   └── get-despesas-by-user-use-case.ts
+      ├── domain/
+      │   └── despesa.ts
+      ├── infrastructure/
+      │   ├── database/
+      │   │   ├── connection.ts
+      │   │   ├── model.ts
+      │   │   └── repository.ts
+      │   ├── genai/
+      │   │   ├── connection.ts
+      │   │   └── repository.ts
+      │   └── utils/
+      │       └── config.ts
+      ├── interface/
+      │   ├── chat-controller.ts
+      │   ├── despesa-controller.ts
+      │   └── index.ts
 
 ````
