@@ -4,5 +4,21 @@ import { GetDespesasByUserUseCase } from '../application/use-cases/get-despesas-
 import { Despesa } from '../domain/despesa';
 
 export class DespesaController {
- //seu codigo aqui
+    constructor(
+        private createDespesaUseCase: CreateDespesaUseCase,
+        private getDespesaByUserUseCase: GetDespesasByUserUseCase
+    ) { }
+
+    create(req: Request, res: Response) {
+        const params: Despesa = req.body;
+        const despesa = this.createDespesaUseCase.execute(params);
+        res.json(201).json(despesa);
+
+    }
+
+    async findAll(req: Request, res: Response) {
+        const userId = req.params.userId;
+        const despesa = await this.getDespesaByUserUseCase.execute(userId)
+        res.status(200).json(despesa);
+    }
 }
