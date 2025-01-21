@@ -3,6 +3,8 @@ import { Despesa } from '../../domain/despesa';
 import { DespesaModel } from './model';
 
 export class RepositoryData implements DespesaRepository {
+    private despesas: Despesa[] = [];
+
     async save(despesa: Despesa): Promise<void> {
         const despesaModel = new DespesaModel(despesa);
         await despesaModel.save();
@@ -26,6 +28,15 @@ export class RepositoryData implements DespesaRepository {
         return translatedDespesas;
 
     }
-
+    async findByMonthAndUserId(month: number, year: number, userId: string): Promise<Despesa[]> {
+        return this.despesas.filter(despesa => {
+            const despesaDate = new Date(despesa.data);
+            return (
+                despesaDate.getMonth() + 1 === month &&
+                despesaDate.getFullYear() === year &&
+                despesa.userId === userId
+            );
+        });
+    }
 
 }
