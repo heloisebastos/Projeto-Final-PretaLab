@@ -10,23 +10,22 @@ export class RepositoryData implements DespesaRepository {
         await despesaModel.save();
     }
 
-    async findAll(): Promise<Despesa[]> {
-        const despesa = await DespesaModel.find()
-        const translatedDespesas = despesa.map(item => {
+    async findAll(): Promise<Array<Despesa>> {
+        const despesas = await DespesaModel.find();
+
+        const translatedDespesas = despesas.map(item => {
             return {
                 id: item._id.toString(),
                 descricao: item.descricao,
+                categoria: item.categoria,
                 valor: item.valor,
                 tipo: item.tipo,
                 data: item.data,
-                userId: item.userId,
-                categoria: item.categoria
-
+                userId: item.userId
             }
-        }) as Despesa[];
+        }) as Array<Despesa>
 
         return translatedDespesas;
-
     }
     async findByMonthAndUserId(month: number, year: number, userId: string): Promise<Despesa[]> {
         return this.despesas.filter(despesa => {
@@ -38,5 +37,4 @@ export class RepositoryData implements DespesaRepository {
             );
         });
     }
-
 }

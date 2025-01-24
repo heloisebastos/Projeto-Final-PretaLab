@@ -7,30 +7,22 @@ import { GetDespesasPorMesUseCase } from '../application/use-cases/get-despesas-
 export class DespesaController {
     constructor(
         private createDespesaUseCase: CreateDespesaUseCase,
-        private getDespesaByUserUseCase: GetDespesasByUserUseCase,
+        private getDespesasByUserUseCase: GetDespesasByUserUseCase,
         private getDespesasPorMesUseCase: GetDespesasPorMesUseCase
 
     ) { }
 
     create(req: Request, res: Response) {
-        try {
-            const params: Despesa = req.body;
-            const despesa = this.createDespesaUseCase.execute(params);
-            res.status(201).json(despesa);
-        } catch (error) {
-            res.status(500).json({ error: (error as Error).message });
-        }
-
-
+        const params: Despesa = req.body;
+        const despesa = this.createDespesaUseCase.execute(params);
+        res.status(201).json(despesa);
     }
 
-    async findAll(req: Request, res: Response) {
+    async getAll(req: Request, res: Response) {
         const userId = req.params.userId;
-        const despesa = await this.getDespesaByUserUseCase.execute(userId)
-        res.status(200).json(despesa);
+        const despesas = await this.getDespesasByUserUseCase.execute(userId);
+        res.json(despesas);
     }
-
-
 
     async findByMonth(req: Request, res: Response): Promise<void> {
         const { month, year, userId } = req.query;
@@ -46,5 +38,7 @@ export class DespesaController {
             res.status(500).json({ error: (error as Error).message });
         }
     }
+
+
 
 }
