@@ -14,7 +14,7 @@ app.use(express.json());
 const { despesaController, chatController } = configureDependencies();
 
 app.post('/despesas', (req, res) => despesaController.create(req, res));
-app.get('despesas/:userid', (req, res) => despesaController.getAll(req, res));
+app.get('/despesas/:userid', (req, res) => despesaController.getAll(req, res));
 app.post('/chat', (req, res) => chatController.open(req, res));
 app.get('/despesas/mes', (req, res) => despesaController.findByMonth(req, res));
 
