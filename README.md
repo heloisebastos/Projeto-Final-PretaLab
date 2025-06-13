@@ -1,4 +1,4 @@
-# API de Gestão de Despesas e Chat com Google GenAI
+# Projeto de Gestão de Despesas e Chat com Google GenAI
 
 # Sumário
 * [1. Introdução](#1-introdução)
